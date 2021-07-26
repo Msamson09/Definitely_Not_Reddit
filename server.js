@@ -7,6 +7,8 @@ import session from 'express-session'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
+import { passUserToView } from './middleware/middleware.js'
+
 
 // create the express app
 const app = express()
@@ -56,7 +58,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 // router middleware
-app.use('/', postsRouter)
+app.use('/posts', postsRouter)
 app.use('/auth', authRouter)
 
 // catch 404 and forward to error handler
