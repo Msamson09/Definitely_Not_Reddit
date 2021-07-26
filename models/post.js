@@ -12,3 +12,5 @@ const postSchema = new Schema ({
 }, {
     timestampes: true,
 })
+
+const Post = mongoose.model("Post", postSchema)
