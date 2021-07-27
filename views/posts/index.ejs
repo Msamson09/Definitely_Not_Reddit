@@ -29,9 +29,15 @@
         </div>
         <div class="mb-3 mx-5">
             <label for="post-content" class="form-label">Post</label>
-            <textarea name="content" class="form-control" id="post-content" rows="5"></textarea>
+            <textarea name="text" class="form-control" id="post-content" rows="5"></textarea>
         </div>
         <button class="btn btn-primary ms-5" type="submit">Create Post</button>
     </form>
+    <% posts.forEach(post => { %>
+        <h2><%= post.title %> </h2>
+        <h2><%= post.text %> </h2>
+        <h2><%= post.author.name %> </h2>
+     
+    <% }) %>
 </main>
 <%- include('../partials/footer') %>

@@ -7,10 +7,11 @@ export {
 }
 
 function show(req, res) {
-    
+
 }
 
 function create(req, res) {
+    req.body.author = req.user.profile._id
     Post.create(req.body)
     .then(res.redirect('/posts'))
 }

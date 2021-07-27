@@ -7,7 +7,7 @@ export {
     router
 }
 
-router.get('/', function(req, res) {
+router.get('/', isLoggedIn, function(req, res) {
     res.render('posts/index.ejs', {
         title: "Definitely Not Reddit",
         
