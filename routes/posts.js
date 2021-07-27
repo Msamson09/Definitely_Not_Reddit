@@ -8,8 +8,8 @@ export {
 const router = Router()
 
 router.get('/', isLoggedIn, postsCtrl.index)
-// router.post('/', isLoggedIn, postsCtrl.create)
-// router.get('/:id', isLoggedIn, postsCtrl.show)
+router.post('/', isLoggedIn, postsCtrl.create)
+router.get('/:id', isLoggedIn, postsCtrl.show)
 // router.post('/:id', isLoggedIn, posts.reply)
 
 function isLoggedIn(req, res, next) {

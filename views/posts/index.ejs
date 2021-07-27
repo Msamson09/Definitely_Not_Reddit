@@ -2,11 +2,36 @@
 <%- include('../partials/nav') %>
 
 <main class="container">
-  <h1 class="my-3"><%= title %></h1>
-  <%# This is where our message creation form will go %> 
-
-  <h2 class="my-3">Board posts</h2>
-  <%# This is where we'll loop over messages to display them %> 
-  
+    <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+  <% if (user?.profile.avatar) { %>
+    <div>
+      <img 
+        src="<%= user.profile.avatar %>" 
+        alt="<%= user.profile.name %> avatar"
+      >
+    </div>
+  <% } %>
+    <h1 class="my-3"><%= title %></h1>
+    <%# This is where our message creation form will go %> 
+    <form action="/posts" method="POST">
+        <h2>
+        Write a Post
+        </h2>
+        <div class="mb-3 mx-5">
+            <label for="title-input" class="form-label">Title</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="title-input" 
+                placeholder="Your title"
+                name="title"
+            >
+        </div>
+        <div class="mb-3 mx-5">
+            <label for="post-content" class="form-label">Post</label>
+            <textarea name="content" class="form-control" id="post-content" rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary ms-5" type="submit">Create Post</button>
+    </form>
 </main>
 <%- include('../partials/footer') %>

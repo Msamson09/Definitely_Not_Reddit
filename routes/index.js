@@ -7,7 +7,7 @@ export {
     router
 }
 
-router.get('/', isLoggedIn, function(req, res) {
+router.get('/', function(req, res) {
     res.render('posts/index.ejs', {
         title: "Definitely Not Reddit",
         
@@ -15,7 +15,7 @@ router.get('/', isLoggedIn, function(req, res) {
 })
 
 function isLoggedIn(req, res, next) {
-    // console.log(req.isAuthenticated())
-    // if (req.isAuthenticated()) return next();
+    console.log(req.isAuthenticated())
+    if (req.isAuthenticated()) return next();
     res.redirect("/auth/google");
   }
