@@ -5,7 +5,19 @@ export {
     create,
     postDelete as delete,
     editPost as edit,
-    update
+    update,
+    show,
+}
+
+function show(req, res) {
+    Post.findById(req.params.id)
+    .populate('author')
+    .then(post => {
+        res.render('posts/show', {
+            title: 'Show',
+            post
+        })
+    })
 }
 
 function update(req, res) {
@@ -20,6 +32,7 @@ function editPost(req, res) {
     .populate('author')
     .then(post => {
         res.render('posts/edit', {
+            title: "Edit Post",
             post
         })
 
@@ -46,7 +59,7 @@ function index(req, res) {
     .sort({ createdAt: "desc" })
     .then(posts => {
         res.render('posts/index', {
-           title: "Forum",
+           title: "Index",
            posts 
         })
     })

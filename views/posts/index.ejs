@@ -34,7 +34,7 @@
         <button class="btn btn-primary ms-5" type="submit">Create Post</button>
     </form>
     <% posts.forEach(post => { %>
-        <h2><%= post.title %> </h2>
+        <a href="/posts/<%= post._id %>"><h2><%= post.title %></h2></a>
         <h2><%= post.text %> </h2>
         <h2><%= post.author.name %> </h2>
         <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
