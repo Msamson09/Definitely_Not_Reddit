@@ -4,12 +4,7 @@
 <main class="container">
     <h1>Hello, <%= user ? user.profile.name : "friend" %></h1>
         <% if (user?.profile.avatar) { %>
-        <div>
-            <img 
-            src="<%= user.profile.avatar %>" 
-            alt="<%= user.profile.name %> avatar"
-            >
-        </div>
+        
         <% } %>
     <h1 class="my-3"><%= title %></h1>
     <%# This is where our message creation form will go %> 
@@ -17,7 +12,7 @@
         <h2>
         Write a Post
         </h2>
-        <div class="mb-3 mx-5">
+        <div id="post" class="mb-3 mx-5">
             <label for="title-input" class="form-label">Title</label>
             <input 
                 type="text" 
@@ -27,11 +22,11 @@
                 name="title"
             >
         </div>
-        <div class="mb-3 mx-5">
+        <div id="post" class="col-10 mb-3 mx-5">
             <label for="post-content" class="form-label">Post</label>
-            <textarea name="text" class="form-control" id="post-content" rows="5"></textarea>
+            <textarea name="text" class="form-control form-control-lg" id="post-content" rows="5"></textarea>
         </div>
-        <button class="btn btn-primary ms-5" type="submit">Create Post</button>
+        <button id="post" class="btn btn-primary ms-5" type="submit">Create Post</button>
     </form>
     <% posts.forEach(post => { %>
         <a href="/posts/<%= post._id %>"><h2><%= post.title %></h2></a>
