@@ -93,7 +93,7 @@ function index(req, res) {
     .sort({ createdAt: "desc" })
     .then(posts => {
         res.render('posts/index', {
-           title: "Index",
+           title: "Definitely-Not-Reddit",
            posts 
         })
     })
