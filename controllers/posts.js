@@ -8,6 +8,19 @@ export {
     update,
     show,
     addReply,
+    deleteReply
+}
+
+function deleteReply(req, res) {
+    //find the post
+    //find the reply
+    //delete the reply
+    Post.findById(req.params.postId)
+    .then(post => {
+        post.replies.remove({_id: req.params.replyId})
+        post.save()
+        res.redirect(`/posts/${post._id}`)
+    })
 }
 
 function addReply(req, res) {

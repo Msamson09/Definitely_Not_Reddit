@@ -12,11 +12,16 @@
    <h2><%= post.author.name %> </h2>
    <form action="/posts/<%= post._id %>/replies" method="POST">
     <input type="text" name="text">
-    <button>Reply</button>
+    <button>Reply</button> 
    </form>
 <% post.replies.forEach(reply => { %>
     <h2><%= reply.text %> </h2>
     <h2><%= reply.author.name %> </h2>
+    <% if (user.profile._id.equals(post.author._id)) { %>
+        <form action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    <% } %> 
 <% }) %>
 
 </body>
