@@ -2,11 +2,11 @@
 <%- include('../partials/nav') %>
 
 <main class="container">
+    <h1 class="my-3"><%= title %></h1>
     <h1>Hello, <%= user ? user.profile.name : "friend" %></h1>
         <% if (user?.profile.avatar) { %>
         
         <% } %>
-    <h1 class="my-3"><%= title %></h1>
     <%# This is where our message creation form will go %> 
     <form action="/posts" method="POST">
         <h2>

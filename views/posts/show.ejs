@@ -15,8 +15,8 @@
     <div class="card" style="width: 40rem;">
         <div class="card-body">
           <h2 class="card-title"><%= post.title %></h2>
-          <h5 class="card-subtitle mb-2 text-muted">Posted by: <%= post.author.name %></h5>
           <h4 class="card-text"><%= post.text %></h4>
+          <h5 class="card-subtitle mb-2 text-muted">Posted by: <%= post.author.name %></h5>
           <form action="/posts/<%= post._id %>/replies" method="POST">
             <input type="text" name="text" placeholder="Type Reply" style="width: 30rem;">
             <button>Reply</button> 
@@ -26,8 +26,8 @@
 <% post.replies.forEach(reply => { %>
     <div class="card" style="width: 40rem; margin-left: 15px;">
         <div class="card-body">
-          <h5 class="card-title">Posted by: <%= reply.author.name %></h5>
-          <h2 class="card-text"><%= reply.text %></h2>
+            <h2 class="card-text"><%= reply.text %></h2>
+            <h5 class="card-title">Posted by: <%= reply.author.name %></h5>
           <form action="/posts/<%= post._id %>/replies" method="POST">
             <input type="text" name="text" placeholder="Type Reply" style="width: 30rem;">
             <button>Reply</button> 
