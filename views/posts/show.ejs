@@ -1,3 +1,6 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,25 +8,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/edit.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Definitely-Not-Reddit</title>
 </head>
 <body>
-   <h1><%= post.title %> </h1> 
-   <h2><%= post.text %> </h2>
-   <h2><%= post.author.name %> </h2>
-   <form action="/posts/<%= post._id %>/replies" method="POST">
-    <input type="text" name="text">
-    <button>Reply</button> 
-   </form>
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+          <h2 class="card-title"><%= post.title %></h2>
+          <h4 class="card-subtitle mb-2 text-muted"><%= post.author.name %></h4>
+          <p class="card-text"><%= post.text %></p>
+          <form action="/posts/<%= post._id %>/replies" method="POST">
+            <input type="text" name="text">
+            <button>Reply</button> 
+           </form>
+        </div>
+    </div>
 <% post.replies.forEach(reply => { %>
-    <h2><%= reply.text %> </h2>
-    <h2><%= reply.author.name %> </h2>
-    <% if (user.profile._id.equals(post.author._id)) { %>
-        <form action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete</button>
-        </form>
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+          <h2 class="card-title"><%= reply.author.name %></h2>
+          <p class="card-text"><%= reply.text %></p>
+          <% if (user.profile._id.equals(post.author._id)) { %>
+            <form action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+    
     <% } %> 
 <% }) %>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+<%- include('../partials/footer') %>
 </html>
