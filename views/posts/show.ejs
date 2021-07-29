@@ -15,8 +15,8 @@
     <div class="card" style="width: 40rem;">
         <div class="card-body">
           <h2 class="card-title"><%= post.title %></h2>
-          <h4 class="card-subtitle mb-2 text-muted"><%= post.author.name %></h4>
-          <p class="card-text"><%= post.text %></p>
+          <h5 class="card-subtitle mb-2 text-muted">Posted by: <%= post.author.name %></h5>
+          <h4 class="card-text"><%= post.text %></h4>
           <form action="/posts/<%= post._id %>/replies" method="POST">
             <input type="text" name="text" placeholder="Type Reply" style="width: 30rem;">
             <button>Reply</button> 
@@ -26,8 +26,8 @@
 <% post.replies.forEach(reply => { %>
     <div class="card" style="width: 40rem;">
         <div class="card-body">
-          <h2 class="card-title"><%= reply.author.name %></h2>
-          <p class="card-text"><%= reply.text %></p>
+          <h5 class="card-title">Posted by: <%= reply.author.name %></h5>
+          <h2 class="card-text"><%= reply.text %></h2>
           <% if (user.profile._id.equals(post.author._id)) { %>
             <form action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
