@@ -24,10 +24,14 @@
         </div>
     </div>
 <% post.replies.forEach(reply => { %>
-    <div class="card" style="width: 40rem;">
+    <div class="card" style="width: 40rem; margin-left: 15px;">
         <div class="card-body">
           <h5 class="card-title">Posted by: <%= reply.author.name %></h5>
           <h2 class="card-text"><%= reply.text %></h2>
+          <form action="/posts/<%= post._id %>/replies" method="POST">
+            <input type="text" name="text" placeholder="Type Reply" style="width: 30rem;">
+            <button>Reply</button> 
+           </form>
           <% if (user.profile._id.equals(post.author._id)) { %>
             <form action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
