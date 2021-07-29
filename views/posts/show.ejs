@@ -12,19 +12,19 @@
     <title>Definitely-Not-Reddit</title>
 </head>
 <body>
-    <div class="card" style="width: 28rem;">
+    <div class="card" style="width: 40rem;">
         <div class="card-body">
           <h2 class="card-title"><%= post.title %></h2>
           <h4 class="card-subtitle mb-2 text-muted"><%= post.author.name %></h4>
           <p class="card-text"><%= post.text %></p>
           <form action="/posts/<%= post._id %>/replies" method="POST">
-            <input type="text" name="text">
+            <input type="text" name="text" placeholder="Type Reply" style="width: 30rem;">
             <button>Reply</button> 
            </form>
         </div>
     </div>
 <% post.replies.forEach(reply => { %>
-    <div class="card" style="width: 28rem;">
+    <div class="card" style="width: 40rem;">
         <div class="card-body">
           <h2 class="card-title"><%= reply.author.name %></h2>
           <p class="card-text"><%= reply.text %></p>
