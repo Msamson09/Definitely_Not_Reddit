@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <body>
-    <div class="card" style="width: 40rem;">
+    <div class="card" style="width: 40rem; margin-top: 5px;">
         <div class="card-body">
           <h2 class="card-title"><%= post.title %></h2>
           <h4 class="card-text"><%= post.text %></h4>
@@ -14,7 +14,7 @@
         </div>
     </div>
 <% post.replies.forEach(reply => { %>
-    <div class="card" style="width: 40rem; margin-left: 15px;">
+    <div class="card" style="width: 40rem; margin-left: 15px; margin-top: 5px;">
         <div class="card-body">
             <h2 class="card-text"><%= reply.text %></h2>
             <h5 class="card-title">Posted by: <%= reply.author.name %></h5>
