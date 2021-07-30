@@ -13,7 +13,8 @@ I was curious about how social media applications such as Reddit worked, so I de
 - Anyone logged in can interact with a post by clicking on the title and then choosing to add a reply.  Either the author of the original post or author of the reply can delete a reply.
   
 ## Screenshot:
-
+![Screenshot 1](https://user-images.githubusercontent.com/77376691/127668180-60372b34-a785-4754-9ebc-73f486806905.png)
+![Screenshot 2](https://user-images.githubusercontent.com/77376691/127668162-04115d1b-02f5-4d05-a884-7e75694ad2f1.png)
 
 ## Technologies Implemented:
 - Embedded Javascript
