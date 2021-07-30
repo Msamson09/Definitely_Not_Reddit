@@ -1,6 +1,6 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-
+<main>
 <body>
     <h1>Edit Post</h1>
     <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
@@ -9,5 +9,6 @@
         <button>Save Post</button>
     </form>
 </body>
+</main>
 </html>
  
