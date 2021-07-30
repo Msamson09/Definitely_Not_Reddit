@@ -30,7 +30,7 @@
         <button id="post" class="btn btn-primary ms-5" type="submit">Create Post</button>
     </form>
     <% posts.forEach(post => { %>
-        <div class="card" style="width: 40rem; margin-bottom: 5px;">
+        <div class="card" style="width: 40rem; margin-top: 5px;">
             <div class="card-body">
               <h2 class="card-title"><a href="/posts/<%= post._id %>" id=post-title><h2><%= post.title %></h2></a></h2>
               <h4 class="card-text"><%= post.text %></h4>
